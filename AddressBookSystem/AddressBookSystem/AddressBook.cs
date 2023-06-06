@@ -10,16 +10,42 @@ namespace AddressBookSystem
     class AddressBook
     {
         public List<Contact> ContactsList;
+        Dictionary<string, List<Contact>> addressBookDictionary = new Dictionary<string, List<Contact>>();
         public AddressBook()
         {
             this.ContactsList = new List<Contact>();
         }
         public void AddContacts(String firstName, String lastName, String address, String city, String state, String zip, String phone, String email)
         {
-           
-                Contact contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
-                this.ContactsList.Add(contact);
-            
+            Contact contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
+            this.ContactsList.Add(contact);
+        }
+        public void AddContacts()
+        {
+            Console.WriteLine("How many persons contacts you want to add to address book");
+            int num = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= num; i++)
+            {
+                Console.WriteLine("Enter first name = ");
+                string firstName = Console.ReadLine();
+                Console.WriteLine("Enter last name = ");
+                string lastName = Console.ReadLine();
+                Console.WriteLine("Enter address= ");
+                string address = Console.ReadLine();
+                Console.WriteLine("Enter city= ");
+                string city = Console.ReadLine();
+                Console.WriteLine("Enter state= ");
+                string state = Console.ReadLine();
+                Console.WriteLine("Enter zip= ");
+                string zip = Console.ReadLine();
+                Console.WriteLine("Enter phoneNumber= ");
+                string phoneNumber = Console.ReadLine();
+                Console.WriteLine("Enter email= ");
+                string email = Console.ReadLine();
+                Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+                ContactsList.Add(contact);
+                Console.WriteLine("contact added succesfully");
+            }
         }
         public void DisplayContact()
         {
@@ -35,7 +61,7 @@ namespace AddressBookSystem
                 Console.WriteLine("Email ID  = " + contact.Email);
             }
         }
-        public void EditContact()
+        public void EditExistingContact()
         {
         search:
             Console.WriteLine("\nEnter first name of the person for editing contact");
@@ -89,7 +115,7 @@ namespace AddressBookSystem
                 }
             }
         }
-        public void DeleteContact()
+        public void DeleteExistingContact()
         {
             bool delete = false;
             Console.WriteLine("\nEnter first name of the person for deleting contact");
