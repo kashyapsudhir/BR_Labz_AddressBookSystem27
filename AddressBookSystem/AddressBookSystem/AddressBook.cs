@@ -16,8 +16,10 @@ namespace AddressBookSystem
         }
         public void AddContacts(String firstName, String lastName, String address, String city, String state, String zip, String phone, String email)
         {
-            Contact contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
-            this.ContactsList.Add(contact);
+           
+                Contact contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
+                this.ContactsList.Add(contact);
+            
         }
         public void DisplayContact()
         {
@@ -33,13 +35,13 @@ namespace AddressBookSystem
                 Console.WriteLine("Email ID  = " + contact.Email);
             }
         }
-
-        public void EditContact()   //Edit Existing Contact
+        public void EditContact()
         {
-        Search:
+        search:
             Console.WriteLine("\nEnter first name of the person for editing contact");
             String firstname = Console.ReadLine();
-            foreach (Contact contact in this.ContactsList)      //Iterating contacts in list
+            bool findContact = false;
+            foreach (Contact contact in this.ContactsList)      //Iterating contacts iin list
             {
                 //Checking the existatnce of the person name in contact list
                 if (contact.FirstName == firstname)
@@ -75,33 +77,35 @@ namespace AddressBookSystem
                             goto ReCheck;
                     }
                     Console.WriteLine("Contact edited succesfully");
+                    findContact = true;
                 }
-                else
+            }
+            if (!findContact)
+            {
+                Console.WriteLine("*** Wrong Input ***: please enter a valid First name\n Enter Y/N");
+                if (Console.ReadKey().Key == ConsoleKey.Y)
                 {
-                    Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
-                    goto Search;
+                    goto search;
                 }
             }
         }
-
         public void DeleteContact()
         {
+            bool delete = false;
             Console.WriteLine("\nEnter first name of the person for deleting contact");
             String firstname = Console.ReadLine();
             foreach (Contact contact in this.ContactsList)      //Iterating contacts in list
             {
-                
-                if (contact.FirstName == firstname)   //Checking the existatnce of the person name in contact list
+                //Checking the existatnce of the person name in contact list
+                if (contact.FirstName == firstname)
                 {
                     this.ContactsList.Remove(contact);
-                    Console.WriteLine("Contact deleted succesfully");
+                    delete = true;
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
-                }
             }
+            if (!delete)
+                Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
         }
     }
 }

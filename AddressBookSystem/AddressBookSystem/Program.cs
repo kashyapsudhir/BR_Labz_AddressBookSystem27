@@ -22,25 +22,32 @@ namespace AddressBookSystem
                     //created a Contacts class
                     break;
                 case 2:
-                    Console.WriteLine("Enter first name = ");
-                    string firstName = Console.ReadLine();
-                    Console.WriteLine("Enter last name = ");
-                    string lastName = Console.ReadLine();
-                    Console.WriteLine("Enter address= ");
-                    String address = Console.ReadLine();
-                    Console.WriteLine("Enter city= ");
-                    String city = Console.ReadLine();
-                    Console.WriteLine("Enter state= ");
-                    String state = Console.ReadLine();
-                    Console.WriteLine("Enter zip= ");
-                    String zip = Console.ReadLine();
-                    Console.WriteLine("Enter phoneNumber= ");
-                    String phoneNumber = Console.ReadLine();
-                    Console.WriteLine("Enter email= ");
-                    String email = Console.ReadLine();
-                    AddressBook builder = new AddressBook();
-                    builder.AddContacts(firstName, lastName, address, city, state, zip, phoneNumber, email);
+                    int howMany = Convert.ToInt32(Console.ReadLine());
+                    for (int i = 1; i <= howMany; i++)
+                    {
+                        Console.WriteLine("Enter first name = ");
+                        string firstName = Console.ReadLine();
+                        Console.WriteLine("Enter last name = ");
+                        string lastName = Console.ReadLine();
+                        Console.WriteLine("Enter address= ");
+                        String address = Console.ReadLine();
+                        Console.WriteLine("Enter city= ");
+                        String city = Console.ReadLine();
+                        Console.WriteLine("Enter state= ");
+                        String state = Console.ReadLine();
+                        Console.WriteLine("Enter zip= ");
+                        String zip = Console.ReadLine();
+                        Console.WriteLine("Enter phoneNumber= ");
+                        String phoneNumber = Console.ReadLine();
+                        Console.WriteLine("Enter email= ");
+                        String email = Console.ReadLine();
+
+
+                        AddressBook builder1 = new AddressBook();
+                        builder1.AddContacts(firstName, lastName, address, city, state, zip, phoneNumber, email);
+                    }
                     Console.WriteLine("\n************** Contact Details are ************");
+                    AddressBook builder = new AddressBook();
                     builder.DisplayContact();
                     builder.EditContact();
                     builder.DisplayContact();
