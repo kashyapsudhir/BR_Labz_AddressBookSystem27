@@ -15,7 +15,21 @@ namespace AddressBookSystem
         {
             this.contactList = new List<Contact>();
         }
+        public void SortByFirstName()
+        {
+            List<string> sortedList = new List<string>();
+            foreach (Contact contact in contactList)
+            {
+                string sort = contact.firstName.ToString();
+                sortedList.Add(sort);
+            }
+            sortedList.Sort();
 
+            foreach (string contact in sortedList)
+            {
+                Console.WriteLine(contact);
+            }
+        }
         public void AddContact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email)
         {
             bool duplicate = Equals(firstName);
