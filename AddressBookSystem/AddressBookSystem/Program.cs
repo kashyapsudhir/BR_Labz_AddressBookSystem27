@@ -125,10 +125,19 @@ namespace AddressBookSystem
                             adressBookDictionary[nameOfAddressBook].SortByFirstName();
                             break;
                         case 7:
-
+                            Console.WriteLine("Enter the address book name for sorting");
+                            string sortByCityInAddressBook = Console.ReadLine();
+                            adressBookDictionary[sortByCityInAddressBook].SortByCity();
                             break;
                         case 8:
-
+                            Console.WriteLine("Enter the address book name for sorting");
+                            string sortByStateInAddressBook = Console.ReadLine();
+                            adressBookDictionary[sortByStateInAddressBook].SortByState();
+                            break;
+                        case 9:
+                            Console.WriteLine("Enter the address book name for sorting");
+                            string sortByZip = Console.ReadLine();
+                            adressBookDictionary[sortByZip].SortByZip();
                             break;
                         case 10:
                             Environment.Exit(0);
