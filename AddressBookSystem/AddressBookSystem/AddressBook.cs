@@ -33,5 +33,55 @@ namespace AddressBookSystem
                 Console.WriteLine("Email ID  = " + contact.Email);
             }
         }
+
+        public void EditContact()   //Edit Existing Contact
+        {
+        Search:
+            Console.WriteLine("\nEnter first name of the person for editing contact");
+            String firstname = Console.ReadLine();
+            foreach (Contact contact in this.ContactsList)      //Iterating contacts in list
+            {
+                                                           //Checking the existatnce of the person name in contact list
+                if (contact.FirstName == firstname)
+                {
+                ReCheck:
+                    Console.WriteLine("Please select the area of editing \n" +
+                        "1)First Name\n2)Last Name\n3)Address\n4)Phone Number\n5)Email_Id");
+                    int option = Convert.ToInt32(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            Console.WriteLine("Please enter your first name : ");
+                            contact.FirstName = Console.ReadLine();
+                            break;
+                        case 2:
+                            Console.WriteLine("Please enter your last name : ");
+                            contact.LastName = Console.ReadLine();
+                            break;
+                        case 3:
+                            Console.WriteLine("Please enter your Address : ");
+                            contact.Address = Console.ReadLine();
+                            break;
+                        case 4:
+                            Console.WriteLine("Please enter your Phone Number : ");
+                            contact.PhoneNum = Console.ReadLine();
+                            break;
+                        case 5:
+                            Console.WriteLine("Please enter your email Id: ");
+                            contact.Email = Console.ReadLine();
+                            break;
+                        default:
+                            Console.WriteLine("Entered an Invalid input\n try again"); 
+                            goto ReCheck;
+                    }
+                    Console.WriteLine("Contact edited succesfully");
+                }
+                else
+                {
+                    Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
+                    goto Search;
+                }
+            }
+        }
     }
 }

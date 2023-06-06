@@ -42,6 +42,8 @@ namespace AddressBookSystem
                     builder.AddContacts(firstName, lastName, address, city, state, zip, phoneNumber, email);
                     Console.WriteLine("\n************** Contact Details are ************");
                     builder.DisplayContact();
+                    builder.EditContact();
+                    builder.DisplayContact();
                     break;
                 default:
                     break;
