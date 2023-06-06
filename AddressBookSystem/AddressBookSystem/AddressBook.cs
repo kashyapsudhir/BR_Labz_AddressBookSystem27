@@ -41,7 +41,7 @@ namespace AddressBookSystem
             String firstname = Console.ReadLine();
             foreach (Contact contact in this.ContactsList)      //Iterating contacts in list
             {
-                                                           //Checking the existatnce of the person name in contact list
+                //Checking the existatnce of the person name in contact list
                 if (contact.FirstName == firstname)
                 {
                 ReCheck:
@@ -71,7 +71,7 @@ namespace AddressBookSystem
                             contact.Email = Console.ReadLine();
                             break;
                         default:
-                            Console.WriteLine("Entered an Invalid input\n try again"); 
+                            Console.WriteLine("Entered an Invalid input\n try again");
                             goto ReCheck;
                     }
                     Console.WriteLine("Contact edited succesfully");
@@ -80,6 +80,26 @@ namespace AddressBookSystem
                 {
                     Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
                     goto Search;
+                }
+            }
+        }
+
+        public void DeleteContact()
+        {
+            Console.WriteLine("\nEnter first name of the person for deleting contact");
+            String firstname = Console.ReadLine();
+            foreach (Contact contact in this.ContactsList)      //Iterating contacts in list
+            {
+                
+                if (contact.FirstName == firstname)   //Checking the existatnce of the person name in contact list
+                {
+                    this.ContactsList.Remove(contact);
+                    Console.WriteLine("Contact deleted succesfully");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
                 }
             }
         }

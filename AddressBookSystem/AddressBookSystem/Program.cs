@@ -44,6 +44,8 @@ namespace AddressBookSystem
                     builder.DisplayContact();
                     builder.EditContact();
                     builder.DisplayContact();
+                    builder.DeleteContact();
+                    builder.DisplayContact();
                     break;
                 default:
                     break;
