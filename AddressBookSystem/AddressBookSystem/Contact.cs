@@ -8,30 +8,32 @@ namespace AddressBookSystem
 {
     public class Contact
     {
-        public String FirstName;
-        public String LastName;
-        public String Address;
-        public String City;
-        public String State;
-        public String Zip;
-        public String PhoneNum;
-        public String Email;
+        public String firstName;
+        public String lastName;
+        public String address;
+        public String city;
+        public String state;
+        public String zip;
+        public String phoneNumber;
+        public String email;
         //consstructor
         public Contact(String firstName, String lastName, String address, String city, String state, String zip, String phone, String email)
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Address = address;
-            this.City = city;
-            this.State = state;
-            this.Zip = zip;
-            this.PhoneNum = phone;
-            this.Email = email;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zip = zip;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
         }
 
         public String toString()
         {
-            return "First Name = " + FirstName + " Last Name = " + LastName + "Address + " + Address + " City = " + City + " stste = " + State + "Zip = " + Zip + "Phone number = " + PhoneNum + " Email = " + Email;
+            return "first Name=" + firstName + ",last name=" + lastName + ",address="
+                        + address + ",city=" + city + ",state=" + state + ",zip" +
+                        zip + ",phone number=" + phoneNumber + "email=" + email;
         }
     }
 }
