@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBookSystem
+namespace AddressBookSystemDay27
 {
     public class Program
     {
@@ -47,7 +47,7 @@ namespace AddressBookSystem
                 try
                 {
                     //Printing addressbook names
-                    Console.WriteLine("You have created following adress book");
+                    Console.WriteLine("\nYou have created following adress books");
                     foreach (string k in adressBookDictionary.Keys)
                     {
                         Console.WriteLine(k);
@@ -55,7 +55,7 @@ namespace AddressBookSystem
 
                     //Using switch case to add,edit,delete and display contacts
                     Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 View person by city or state" +
-                        "\n 6 Sort the entries Alphabetically\n 7 Sort by city\n 8 Sort by state\n9 Sortr by zip code \n 10 for exit");
+                        "\n 6 Sort the entries Alphabetically\n 7 Sort by city\n 8 Sort by state\n 9 Sort by zip code \n 10 Write Contacts into text file\n 11 Read Contacts from text file\n 14 for exit");
                     int choise = Convert.ToInt32(Console.ReadLine());
                     switch (choise)
                     {
@@ -121,8 +121,8 @@ namespace AddressBookSystem
                             break;
                         case 6:
                             Console.WriteLine("Enter the address book name for sorting");
-                            string nameOfAddressBook = Console.ReadLine();
-                            adressBookDictionary[nameOfAddressBook].SortByFirstName();
+                            string sortByFirstNameInAddressBook = Console.ReadLine();
+                            adressBookDictionary[sortByFirstNameInAddressBook].SortByFirstName();
                             break;
                         case 7:
                             Console.WriteLine("Enter the address book name for sorting");
@@ -140,6 +140,16 @@ namespace AddressBookSystem
                             adressBookDictionary[sortByZip].SortByZip();
                             break;
                         case 10:
+                            Console.WriteLine("Enter Adress Book Name To write Contacts = ");
+                            string writeInAddressBook = Console.ReadLine();
+                            adressBookDictionary[writeInAddressBook].WriteInTxtFile();
+                            break;
+                        case 11:
+                            Console.WriteLine("Enter Adress Book Name To read Contacts");
+                            string readFromAddressBook = Console.ReadLine();
+                            adressBookDictionary[readFromAddressBook].ReadFromTxtFile();
+                            break;
+                        case 14:
                             Environment.Exit(0);
                             break;
                         default:

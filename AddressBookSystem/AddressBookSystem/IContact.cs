@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBookSystem
+namespace AddressBookSystemDay27
 {
-    public interface IContact
+    public interface IContacts
     {
-        public void addContact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email);
-        public void editContact(string firstName);
-        public void deleteContact(string firstName);
-        public void displayContact();
+        public void AddContact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email);
+        public void EditContact(string firstName);
+        public void DeleteContact(string firstName);
+        public void DisplayContact();
     }
 }
